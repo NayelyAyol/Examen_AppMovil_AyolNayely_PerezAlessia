@@ -31,11 +31,13 @@ import {
   searchOutline, 
   searchSharp, 
   clipboard,
-  clipboardSharp    
+  clipboardSharp,
+  // 💡 AÑADIDO: Importamos los estados del nuevo icono para la cámara
+  apertureOutline,
+  apertureSharp
 } from 'ionicons/icons';
 
 import { AuthService } from './services/auth.service';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -64,7 +66,6 @@ export class AppComponent {
 
   mostrarMenu = false;
 
-  // 💡 CORRECCIÓN: Dejamos 'search' limpio para que Ionic elija dinámicamente entre Outline y Sharp
   public appPages = [
     { title: 'Mi Perfil', url: '/perfil', icon: 'person-circle' },
     { title: 'Catálogo', url: '/catalogo', icon: 'musical-notes' },
@@ -72,6 +73,8 @@ export class AppComponent {
     { title: 'GPS', url: '/gps', icon: 'location' }, 
     { title: 'Buscador', url: '/buscador', icon: 'search' }, 
     { title: 'Encuesta', url: '/encuesta', icon: 'clipboard' }, 
+    // 💡 CORRECCIÓN: Cambiado de 'icon-camera' a 'aperture' para que use el nuevo estilo tecnológico
+    { title: 'Cámara', url: '/camara', icon: 'aperture' }, 
   ];
 
   constructor() {
@@ -89,7 +92,10 @@ export class AppComponent {
       searchOutline, 
       searchSharp, 
       clipboard,
-      clipboardSharp    
+      clipboardSharp,
+      // 💡 AÑADIDO: Registramos el icono en el core de Ionicons
+      apertureOutline,
+      apertureSharp
     });
 
     this.router.events.pipe(

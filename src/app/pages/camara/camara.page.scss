@@ -1,0 +1,155 @@
+.main-toolbar {
+  --background: #0b0f19; 
+  --border-color: transparent;
+}
+
+.main-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.form-content {
+  --background: #070a12; 
+  --padding-top: 24px;
+}
+
+.encuesta-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 90px; // Espacio extra abajo para que el botón flotante no tape las fotos
+}
+
+.form-card {
+  background: #0f172a; 
+  border-radius: 16px;
+  border: 1px solid #1e293b;
+  padding: 28px 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-header {
+  margin-bottom: 24px;
+  font-family: 'Nunito', sans-serif;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 16px;
+
+  h2 {
+    color: #ffffff; 
+    font-weight: 900;
+    margin: 0 0 6px 0;
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    color: #38bdf8; 
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+}
+
+// Estilos de la galería de fotos (Estilo Inventario AAA)
+ion-grid {
+  --ion-grid-padding: 0px;
+}
+
+.photo-col {
+  padding: 6px;
+}
+
+.gallery-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; // Hace que las fotos sean perfectamente cuadradas
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid #1e293b;
+  background: #1e293b;
+  transition: all 0.25s ease-in-out;
+
+  &:hover, &:active {
+    border-color: #06b6d4; // Resalta en cian al interactuar
+    transform: scale(1.02);
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.2);
+  }
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// Pequeño HUD indicador sobre la imagen
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.85), transparent);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+
+  span {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #38bdf8;
+    letter-spacing: 0.05em;
+  }
+}
+
+// Contenedor vacío por si no hay fotos
+.empty-gallery {
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Nunito', sans-serif;
+
+  ion-icon {
+    font-size: 3rem;
+    color: #334155;
+    margin-bottom: 12px;
+  }
+
+  p {
+    color: #64748b;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}
+
+// Botón Flotante de Cámara Estilizado (HUD Eléctrico Verde/Cian)
+.fab-camera-container {
+  margin-bottom: 16px;
+}
+
+.btn-camera {
+  --background: #10b981; // Verde esmeralda base lleno de vida
+  --background-hover: #059669;
+  --background-activated: #06b6d4; // Cambia a cian dinámico al pulsarlo
+  --color: #ffffff;
+  --box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4); // Brillo/glow exterior del botón
+  --border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.08); // Efecto pop-up sutil al pasar por encima
+  }
+}
+
+.icon-camera {
+  font-size: 1.6rem;
+}

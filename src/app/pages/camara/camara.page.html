@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar class="main-toolbar">
+    <ion-title class="main-title">Cámara / Galería</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="form-content ion-padding" [fullscreen]="true">
+
+  <div class="encuesta-container">
+    <div class="form-card">
+      
+      <div class="form-header">
+        <h2>Galería de Capturas</h2>
+        <p>Evidencias fotográficas registradas en el campus.</p>
+      </div>
+
+      <ion-grid class="ion-no-padding">
+        <ion-row style="row-gap: 4px;">
+          
+          <ion-col size="6" *ngFor="let photo of photoService.photos; index as position" class="photo-col">
+            <div class="gallery-card">
+              <ion-img [src]="photo.webviewPath" class="gallery-img"></ion-img>
+              <div class="gallery-overlay">
+                <span>ID: #{{ position + 1 }}</span>
+              </div>
+            </div>
+          </ion-col>
+
+          <ion-col size="12" *ngIf="photoService.photos.length === 0" class="empty-gallery">
+            <ion-icon name="images-outline"></ion-icon>
+            <p>No hay capturas registradas en el sistema.</p>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+    </div>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed" class="fab-camera-container">
+    <ion-fab-button class="btn-camera" (click)="addPhotoToGallery()">
+      <ion-icon name="camera" class="icon-camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

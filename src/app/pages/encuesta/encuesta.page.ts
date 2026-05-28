@@ -12,7 +12,10 @@ import {
   IonSelect,
   IonSelectOption,
   IonTextarea,
-  IonButton
+  IonButton,
+  IonGrid,
+  IonRow,
+  IonCol
 } from '@ionic/angular/standalone';
 
 import { EncuestaService, Encuesta } from '../../services/encuesta.service';
@@ -35,7 +38,10 @@ import { EncuestaService, Encuesta } from '../../services/encuesta.service';
     IonSelect,
     IonSelectOption,
     IonTextarea,
-    IonButton
+    IonButton,
+    IonGrid,
+    IonRow,
+    IonCol
   ]
 })
 export class EncuestaPage {
