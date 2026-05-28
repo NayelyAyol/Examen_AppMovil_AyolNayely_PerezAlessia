@@ -1,0 +1,143 @@
+// Reutilizamos tu paleta hermosa morada
+.main-toolbar {
+  --background: #7c3aed;
+  --border-color: transparent;
+}
+
+.main-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #ffffff;
+  text-align: left;
+}
+
+.form-content {
+  --background: #f5f0ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 420px;
+  margin: 40px auto 0;
+}
+
+.login-brand {
+  text-align: center;
+  margin-bottom: 24px;
+  font-family: 'Nunito', sans-serif;
+
+  .logo-circle-login {
+    width: 70px;
+    height: 70px;
+    background: #7c3aed;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin: 0 auto 12px;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.25);
+  }
+
+  h2 {
+    color: #2e1065;
+    font-weight: 800;
+    margin: 0;
+    font-size: 1.8rem;
+  }
+
+  p {
+    color: #6d28d9;
+    font-size: 0.95rem;
+    margin: 4px 0 0;
+    font-weight: 600;
+  }
+}
+
+.form-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1.5px solid #ede9fe;
+  padding: 24px 20px;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field-item {
+  --background: #ede9fe;
+  --background-focused: #ddd6fe;
+  --border-color: transparent;
+  --border-width: 0;
+  --inner-border-width: 0;
+  --border-radius: 12px;
+  --padding-start: 12px;
+  --highlight-color-focused: transparent;
+  border-radius: 12px;
+  overflow: hidden;
+
+  &.item-has-focus {
+    outline: 2px solid #a78bfa;
+  }
+}
+
+.field-input {
+  font-family: 'Nunito', sans-serif !important;
+  --color: #2e1065 !important;
+  
+  // Estilo interno de la etiqueta nativa de Ionic en v7+
+  &::part(label) {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em;
+    color: #6d28d9 !important;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+}
+
+.btn-save {
+  margin-top: 8px;
+  --background: #7c3aed;
+  --background-hover: #6d28d9;
+  --background-activated: #6d28d9;
+  --color: #ffffff;
+  --border-radius: 14px;
+  --box-shadow: 0 6px 18px rgba(124, 58, 237, 0.3);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  height: 50px;
+}
+
+.btn-register {
+  --color: #6d28d9;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.error-container {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-align: center;
+  margin: 4px 0;
+
+  .msg-error {
+    color: #ef4444;
+    margin: 0;
+  }
+
+  .msg-success {
+    color: #22c55e;
+    margin: 0;
+  }
+}

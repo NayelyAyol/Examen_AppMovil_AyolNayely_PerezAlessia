@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar class="main-toolbar">
+    <ion-title class="main-title">Mi Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="form-content ion-padding">
+
+  <div class="profile-container">
+
+    <div class="form-card">
+
+      <div class="avatar-container">
+        <ion-icon name="person-circle-outline" class="avatar-icon"></ion-icon>
+        <h2>¡Hola, {{ nombre }}!</h2>
+        <p class="subtitulo">Espacio personal del usuario</p>
+      </div>
+
+      <div class="info-item">
+        <strong>Nombre Completo</strong>
+        <p>{{ nombre }} {{ apellido }}</p>
+      </div>
+
+      <div class="info-item">
+        <strong>Correo Electrónico</strong>
+        <p>{{ email }}</p>
+      </div>
+
+      <div class="info-item">
+        <strong>Estado de la cuenta</strong>
+        <p class="status-active">✓ Activa en Supabase</p>
+      </div>
+
+    </div>
+
+    </div>
+
+</ion-content>

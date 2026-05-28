@@ -1,119 +1,154 @@
-ion-menu ion-content {
-  --background: var(--ion-item-background, var(--ion-background-color, #fff));
+.custom-menu {
+  --width: 290px;
 }
 
-ion-menu.md ion-content {
-  --padding-start: 8px;
-  --padding-end: 8px;
-  --padding-top: 20px;
-  --padding-bottom: 20px;
+.menu-content {
+  --background: #f5f0ff;
 }
 
-ion-menu.md ion-list {
-  padding: 20px 0;
+.menu-header {
+
+  background: #7c3aed;
+
+  padding: 42px 20px 34px;
+
+  border-bottom-left-radius: 34px;
+  border-bottom-right-radius: 34px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.25);
 }
 
-ion-menu.md ion-note {
-  margin-bottom: 30px;
+.logo-circle {
+
+  width: 78px;
+  height: 78px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.18);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  backdrop-filter: blur(12px);
+
+  color: white;
+
+  font-size: 2rem;
+  font-weight: 800;
+
+  margin-bottom: 16px;
 }
 
-ion-menu.md ion-list-header,
-ion-menu.md ion-note {
-  padding-left: 10px;
+.menu-title {
+
+  margin: 0;
+
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+
+  color: white;
 }
 
-ion-menu.md ion-list#inbox-list {
-  border-bottom: 1px solid var(--ion-background-color-step-150, #d7d8da);
+.menu-subtitle {
+
+  margin-top: 4px;
+
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+
+  color: #ddd6fe;
 }
 
-ion-menu.md ion-list#inbox-list ion-list-header {
-  font-size: 22px;
-  font-weight: 600;
+.menu-list {
 
-  min-height: 20px;
+  background: transparent;
+
+  padding: 24px 14px;
 }
 
-ion-menu.md ion-list#labels-list ion-list-header {
-  font-size: 16px;
+.menu-item {
 
-  margin-bottom: 18px;
+  --background: transparent;
+  --border-radius: 18px;
 
-  color: #757575;
+  --padding-start: 14px;
+  --padding-end: 14px;
 
-  min-height: 26px;
+  --min-height: 58px;
+
+  margin-bottom: 12px;
+
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.96rem;
+  font-weight: 700;
+
+  color: #4c1d95;
+
+  transition: 0.2s ease;
 }
 
-ion-menu.md ion-item {
-  --padding-start: 10px;
-  --padding-end: 10px;
-  border-radius: 4px;
+.menu-item ion-icon {
+
+  color: #7c3aed;
+
+  font-size: 1.3rem;
+
+  margin-right: 6px;
 }
 
-ion-menu.md ion-item.selected {
-  --background: rgba(var(--ion-color-primary-rgb), 0.14);
+.menu-item.selected {
+
+  --background: #7c3aed;
+
+  color: white;
+
+  box-shadow: 0 8px 22px rgba(124, 58, 237, 0.28);
 }
 
-ion-menu.md ion-item.selected ion-icon {
-  color: var(--ion-color-primary);
+.menu-item.selected ion-icon {
+  color: white;
 }
 
-ion-menu.md ion-item ion-icon {
-  color: #616e7e;
+.menu-item:hover {
+  --background: #ede9fe;
 }
 
-ion-menu.md ion-item ion-label {
-  font-weight: 500;
+ion-menu::part(backdrop) {
+  background: rgba(76, 29, 149, 0.3);
 }
 
-ion-menu.ios ion-content {
-  --padding-bottom: 20px;
+ion-menu::part(container) {
+  border-radius: 0 28px 28px 0;
 }
 
-ion-menu.ios ion-list {
-  padding: 20px 0 0 0;
-}
+// Estilo integrado para el botón de cerrar sesión en el Sidebar
+.logout-item {
+  margin-top: 20px;
+  --background: transparent !important;
+  font-family: 'Nunito', sans-serif;
+  
+  // Usamos la variable de Ionic para inyectar el color ciruela dentro del shadow DOM del icon
+  ion-icon {
+    --color: #b91c1c !important; 
+    font-size: 1.3rem;
+  }
 
-ion-menu.ios ion-note {
-  line-height: 24px;
-  margin-bottom: 20px;
-}
+  // Usamos la variable de Ionic para el color del texto
+  ion-label {
+    --color: #4c1d95 !important; 
+    font-weight: 700 !important;
+    font-size: 0.95rem;
+  }
 
-ion-menu.ios ion-item {
-  --padding-start: 16px;
-  --padding-end: 16px;
-  --min-height: 50px;
-}
-
-ion-menu.ios ion-item.selected ion-icon {
-  color: var(--ion-color-primary);
-}
-
-ion-menu.ios ion-item ion-icon {
-  font-size: 24px;
-  color: #73849a;
-}
-
-ion-menu.ios ion-list#labels-list ion-list-header {
-  margin-bottom: 8px;
-}
-
-ion-menu.ios ion-list-header,
-ion-menu.ios ion-note {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-ion-menu.ios ion-note {
-  margin-bottom: 8px;
-}
-
-ion-note {
-  display: inline-block;
-  font-size: 16px;
-
-  color: var(--ion-color-medium-shade);
-}
-
-ion-item.selected {
-  --color: var(--ion-color-primary);
+  &:hover, &.ion-activated {
+    --background: #fef2f2 !important;
+    --border-radius: 12px; // Cambiado a variable nativa de ionic para items
+  }
 }

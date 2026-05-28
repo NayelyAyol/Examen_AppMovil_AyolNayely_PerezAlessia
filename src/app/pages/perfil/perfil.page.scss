@@ -1,0 +1,111 @@
+// Fondo general de la página con tu lavanda suave característico
+
+.main-toolbar {
+  --background: #7c3aed;
+  --border-color: transparent;
+}
+
+.main-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.form-content {
+  --background: #f5f0ff;
+}
+
+.profile-container {
+  width: 100%;
+  max-width: 480px;
+  margin: 12px auto 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+// Tarjeta principal del perfil con bordes redondeados y sombra suave morada
+.form-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1.5px solid #ede9fe;
+  padding: 16px 20px 24px;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+// Contenedor del Avatar centrado
+.avatar-container {
+  text-align: center;
+  padding: 16px 10px 24px;
+
+  .avatar-icon {
+    font-size: 90px;
+    color: #7c3aed; // Tu morado vibrante principal
+    filter: drop-shadow(0 6px 14px rgba(124, 58, 237, 0.2));
+  }
+
+  h2 {
+    color: #2e1065; // El morado oscuro profundo para títulos
+    font-weight: 900;
+    margin: 8px 0 0;
+    font-size: 1.8rem;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitulo {
+    color: #6d28d9; // Subtítulos en tono medio estructurado
+    font-size: 0.9rem;
+    margin: 4px 0 0;
+    font-weight: 600;
+  }
+}
+
+// Los bloques contenedores de información individuales que querías
+.info-item {
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #fdfbff; // Un blanco con matiz lavanda ultra sutil
+  border: 1px solid #f3efff;
+  border-left: 5px solid #7c3aed; // El borde izquierdo acentuado con tu morado insignia
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  box-shadow: 0 2px 6px rgba(124, 58, 237, 0.02);
+
+  strong {
+    color: #6d28d9; // Morado para destacar el label
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #2e1065; // Texto de valor con buena presencia
+  }
+
+  // Estilo especial si el valor indica estado activo
+  .status-active {
+    color: #22c55e !important;
+    font-weight: 800;
+  }
+}
+
+// Botón de salir estilizado en tonos rojizos complementarios para seguridad
+.btn-logout {
+  margin-top: 24px;
+  --background: #ef4444;
+  --background-hover: #dc2626;
+  --background-activated: #dc2626;
+  --color: #ffffff;
+  --border-radius: 14px;
+  --box-shadow: 0 6px 16px rgba(239, 68, 68, 0.25);
+  font-weight: 800;
+  font-size: 1rem;
+  height: 50px;
+}

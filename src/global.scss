@@ -35,3 +35,87 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+.toast-success::part(container),
+.toast-error::part(container) {
+  --background: #ffffff;
+  --color: #0f172a;
+
+  background: #ffffff !important;
+  color: #0f172a !important;
+
+  border-radius: 14px;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+
+  padding: 14px 16px;
+
+  border-bottom: 4px solid;
+
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+}
+
+.toast-success::part(container) {
+  border-bottom-color: #22c55e;
+}
+
+.toast-error::part(container) {
+  border-bottom-color: #ef4444;
+}
+
+.toast-success::part(message),
+.toast-error::part(message) {
+  color: #0f172a !important;
+
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+}
+
+.custom-alert {
+  --background: #ffffff;
+  --backdrop-opacity: 0.45;
+}
+
+.custom-alert .alert-wrapper {
+  border-radius: 20px;
+  border: 1.5px solid #ede9fe;
+  padding-top: 10px;
+}
+
+.custom-alert .alert-message {
+  font-family: 'Nunito', sans-serif;
+  color: #2e1065;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding-top: 8px;
+}
+
+.custom-alert .alert-button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.custom-alert .alert-button {
+  border-radius: 12px !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 0.9rem !important;
+  text-transform: none !important;
+}
+
+.custom-alert .alert-button-cancel {
+  background: #ffffff !important;
+  color: #7c3aed !important;
+  border: 2px solid #c4b5fd !important;
+}
+
+.custom-alert .alert-button-confirm {
+  background: #fce7f3 !important;
+  color: #be185d !important;
+  border: 2px solid #f9a8d4 !important;
+}
+
+* {
+  font-family: 'Nunito', sans-serif;
+}

@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar class="main-toolbar">
+    <ion-title class="main-title">Music App - Ingreso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="form-content ion-padding">
+
+  <div class="login-container">
+    
+    <div class="login-brand">
+      <div class="logo-circle-login">♪</div>
+      <h2>Bienvenido</h2>
+      <p>Ingresa para explorar tu catálogo musical</p>
+    </div>
+
+    <div class="form-card">
+
+      <ion-item class="field-item">
+        <ion-input 
+          label="Correo Electrónico" 
+          labelPlacement="stacked" 
+          class="field-input"
+          type="email" 
+          placeholder="ejemplo@correo.com"
+          [(ngModel)]="email">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="field-item">
+        <ion-input 
+          label="Contraseña" 
+          labelPlacement="stacked" 
+          class="field-input"
+          type="password" 
+          placeholder="••••••••"
+          [(ngModel)]="password">
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
+      </ion-item>
+
+      <ion-button class="btn-save" expand="block" (click)="login()">
+        Iniciar Sesión
+      </ion-button>
+
+      <ion-button class="btn-register" expand="block" fill="clear" (click)="register()">
+        ¿No tienes cuenta? Regístrate aquí
+      </ion-button>
+
+    </div>
+
+  </div>
+
+</ion-content>
