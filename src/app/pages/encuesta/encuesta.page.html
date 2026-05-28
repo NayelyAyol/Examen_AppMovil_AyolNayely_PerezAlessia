@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar class="main-toolbar">
+    <ion-title class="main-title">Encuesta de videojuegos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding form-content">
+
+  <div class="encuesta-container">
+    <div class="form-card">
+
+      <div class="form-header">
+        <h2>Nueva encuesta</h2>
+        <p>Completa los datos de la persona encuestada en el campus.</p>
+      </div>
+
+      <ion-item class="form-item">
+        <ion-label position="floating">¿Cuál es tu nombre o alias?</ion-label>
+        <ion-input [(ngModel)]="encuesta.nombre_alias"></ion-input>
+      </ion-item>
+
+      <ion-item class="form-item">
+        <ion-label>¿Cuál es tu rango de edad?</ion-label>
+        <ion-select [(ngModel)]="encuesta.edad_rango" placeholder="Selecciona una opción">
+          <ion-select-option *ngFor="let edad of edades" [value]="edad">
+            {{ edad }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="form-item">
+        <ion-label>¿Cuál es tu rol en el campus?</ion-label>
+        <ion-select [(ngModel)]="encuesta.rol" placeholder="Selecciona una opción">
+          <ion-select-option *ngFor="let rol of roles" [value]="rol">
+            {{ rol }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="form-item">
+        <ion-label position="floating">¿Cuál es tu videojuego favorito?</ion-label>
+        <ion-input [(ngModel)]="encuesta.videojuego_favorito"></ion-input>
+      </ion-item>
+
+      <ion-item class="form-item">
+        <ion-label>¿En qué plataforma lo juegas más?</ion-label>
+        <ion-select [(ngModel)]="encuesta.plataforma" placeholder="Selecciona una opción">
+          <ion-select-option *ngFor="let plataforma of plataformas" [value]="plataforma">
+            {{ plataforma }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="form-item">
+        <ion-label>¿Qué género de videojuegos prefieres?</ion-label>
+        <ion-select [(ngModel)]="encuesta.genero" placeholder="Selecciona una opción">
+          <ion-select-option *ngFor="let genero of generos" [value]="genero">
+            {{ genero }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="form-item">
+        <ion-label position="floating">Comentario breve sobre el videojuego</ion-label>
+        <ion-textarea [(ngModel)]="encuesta.comentario"></ion-textarea>
+      </ion-item>
+
+      <ion-button expand="block" class="btn-save" (click)="guardarEncuesta()">
+        Guardar encuesta
+      </ion-button>
+
+    </div>
+  </div>
+
+</ion-content>

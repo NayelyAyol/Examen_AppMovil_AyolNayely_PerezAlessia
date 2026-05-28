@@ -37,5 +37,9 @@ export const routes: Routes = [
   {
     path: 'buscador',
     loadComponent: () => import('./pages/buscador/buscador.page').then( m => m.BuscadorPage)
+  },  {
+    path: 'encuesta',
+    loadComponent: () => import('./pages/encuesta/encuesta.page').then( m => m.EncuestaPage)
   }
+
 ];

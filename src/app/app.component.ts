@@ -28,17 +28,20 @@ import {
   logOutSharp,
   locationOutline,
   locationSharp,
-  searchOutline, // 👈 Registrado
-  searchSharp    // 👈 ¡AÑADIDO para soporte Android!
+  searchOutline, 
+  searchSharp, 
+  clipboard,
+  clipboardSharp    
 } from 'ionicons/icons';
 
 import { AuthService } from './services/auth.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
-  standalone: true, // Asegúrate de tenerlo si usas los imports directos aquí
+  standalone: true, 
   imports: [
     CommonModule, 
     RouterLink,
@@ -67,7 +70,8 @@ export class AppComponent {
     { title: 'Catálogo', url: '/catalogo', icon: 'musical-notes' },
     { title: 'Agregar Música', url: '/musica-form', icon: 'add-circle' },
     { title: 'GPS', url: '/gps', icon: 'location' }, 
-    { title: 'Buscador', url: '/buscador', icon: 'search' }, // 👈 Cambiado a 'search'
+    { title: 'Buscador', url: '/buscador', icon: 'search' }, 
+    { title: 'Encuesta', url: '/encuesta', icon: 'clipboard' }, 
   ];
 
   constructor() {
@@ -82,8 +86,10 @@ export class AppComponent {
       logOutSharp,
       locationOutline,
       locationSharp,
-      searchOutline, // 👈 Registrado para iOS
-      searchSharp    // 👈 Registrado para Android
+      searchOutline, 
+      searchSharp, 
+      clipboard,
+      clipboardSharp    
     });
 
     this.router.events.pipe(

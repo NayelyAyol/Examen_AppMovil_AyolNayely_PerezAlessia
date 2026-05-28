@@ -9,14 +9,18 @@ export class SupabaseService {
   public supabase: SupabaseClient;
 
   constructor() {
-    // Inicialización limpia y directa, idéntica a tu segundo código pero usando environments
-    this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
+    this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey, {
+      auth: {
+        persistSession: true,
+        autoRefreshToken: true
+      }
+    });
   }
 
   async guardarUbicacion(latitud: number, longitud: number, mapaUrl: string) {
     try {
       const { data, error } = await this.supabase
-        .from('ubicaciones') 
+        .from('ubicaciones')
         .insert([
           {
             latitud: latitud,
