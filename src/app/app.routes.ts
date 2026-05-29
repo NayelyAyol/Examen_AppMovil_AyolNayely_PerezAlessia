@@ -3,8 +3,11 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'welcome',
     pathMatch: 'full',
+  },
+  {
+    path: 'welcome',loadComponent: () =>import('./pages/welcome/welcome.page').then(m => m.WelcomePage)
   },
   {
     path: 'login',
@@ -20,11 +23,16 @@ export const routes: Routes = [
   },
   {
     path: 'perfil',
-    loadComponent: () => import('./pages/perfil/perfil.page').then( m => m.PerfilPage)
+    loadComponent: () => import('./pages/perfil/perfil.page').then(m => m.PerfilPage)
   },
   {
     path: 'encuesta',
-    loadComponent: () => import('./pages/encuesta/encuesta.page').then( m => m.EncuestaPage)
+    loadComponent: () => import('./pages/encuesta/encuesta.page').then(m => m.EncuestaPage)
   },
+  {
+    path: 'welcome',
+    loadComponent: () => import('./pages/welcome/welcome.page').then(m => m.WelcomePage)
+  },
+
 
 ];

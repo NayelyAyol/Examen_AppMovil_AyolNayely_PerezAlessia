@@ -114,11 +114,12 @@ export class AppComponent {
     ).subscribe((event: any) => {
       const urlActual = event.urlAfterRedirects;
 
+      const esWelcome = urlActual.includes('/welcome');
       const esLogin = urlActual.includes('/login');
       const esRegistro = urlActual.includes('/registrarse') || urlActual.includes('/register');
       const esRaiz = urlActual === '/';
 
-      this.mostrarMenu = !(esLogin || esRegistro || esRaiz);
+      this.mostrarMenu = !(esWelcome || esLogin || esRegistro || esRaiz);
     });
   }
 
