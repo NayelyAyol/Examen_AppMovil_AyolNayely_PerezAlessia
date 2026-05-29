@@ -17,7 +17,7 @@
 ## Tecnologías y Herramientas
 * **Framework:** Ionic v7+ / Angular 18+
 * **Backend:** Supabase (Auth, Database, Storage)
-* **API de Videojuegos:** [RAWG Video Games Database API](https://rawg.io/apidocs)
+* **API de Videojuegos:** RAWG
 * **Plugins de Capacitor:** Camera, Geolocation, Filesystem
 * **Despliegue:** Firebase Hosting (Dashboard)
 * **Gestión de Assets:** `@capacitor/assets`
