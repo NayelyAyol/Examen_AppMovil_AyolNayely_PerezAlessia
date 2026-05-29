@@ -4,7 +4,6 @@ import { SupabaseService } from './supabase.service';
 export interface Encuesta {
   id?: string;
   usuario_id?: string;
-
   nombre_alias: string;
   edad_rango: string;
   rol: string;
@@ -27,6 +26,7 @@ export interface Encuesta {
   juego_rating?: string;
 
   created_at?: string;
+  api_data?: any; // Mantenido por compatibilidad de tipos
 }
 
 @Injectable({
@@ -44,8 +44,14 @@ export class EncuestaService {
       throw new Error('No hay usuario autenticado');
     }
 
+    // Clonamos el objeto y limpiamos api_data si se coló del controlador
+    let datosParaSupabase: any = { ...encuesta };
+    if (datosParaSupabase.api_data) {
+      delete datosParaSupabase.api_data;
+    }
+
     const nuevaEncuesta = {
-      ...encuesta,
+      ...datosParaSupabase,
       usuario_id: userData.user.id
     };
 
@@ -61,6 +67,10 @@ export class EncuestaService {
     }
 
     return data;
+  }
+
+  async obtenerEncuestas() {
+    return this.listarEncuestas();
   }
 
   async listarEncuestas() {

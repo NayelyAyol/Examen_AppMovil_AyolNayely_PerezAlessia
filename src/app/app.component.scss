@@ -1,154 +1,124 @@
 .custom-menu {
-  --width: 290px;
+    --width: 290px;
 }
 
 .menu-content {
-  --background: #f5f0ff;
+    --background: linear-gradient(135deg, #020617, #0f172a, #111827) !important;
 }
 
 .menu-header {
-
-  background: #7c3aed;
-
-  padding: 42px 20px 34px;
-
-  border-bottom-left-radius: 34px;
-  border-bottom-right-radius: 34px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.25);
+    background: radial-gradient(circle at top, #2563eb, transparent 85%), #020617;
+    padding: 42px 20px 34px;
+    border-bottom-left-radius: 34px;
+    border-bottom-right-radius: 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .logo-circle {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    margin-bottom: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-  width: 78px;
-  height: 78px;
-
-  border-radius: 50%;
-
-  background: rgba(255,255,255,0.18);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  backdrop-filter: blur(12px);
-
-  color: white;
-
-  font-size: 2rem;
-  font-weight: 800;
-
-  margin-bottom: 16px;
+.logo-circle ion-icon {
+    font-size: 2.2rem;
+    color: #ffffff;
+    filter: drop-shadow(0 4px 10px rgba(59, 130, 246, 0.4));
 }
 
 .menu-title {
-
-  margin: 0;
-
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.45rem;
-  font-weight: 800;
-
-  color: white;
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: white;
 }
 
 .menu-subtitle {
-
-  margin-top: 4px;
-
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.85rem;
-
-  color: #ddd6fe;
+    margin-top: 4px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.85rem;
+    color: #cbd5e1; 
 }
 
 .menu-list {
-
-  background: transparent;
-
-  padding: 24px 14px;
+    background: transparent;
+    padding: 24px 14px;
 }
 
 .menu-item {
-
-  --background: transparent;
-  --border-radius: 18px;
-
-  --padding-start: 14px;
-  --padding-end: 14px;
-
-  --min-height: 58px;
-
-  margin-bottom: 12px;
-
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.96rem;
-  font-weight: 700;
-
-  color: #4c1d95;
-
-  transition: 0.2s ease;
+    --background: transparent;
+    --border-radius: 18px;
+    --padding-start: 14px;
+    --padding-end: 14px;
+    --min-height: 58px;
+    margin-bottom: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.96rem;
+    font-weight: 700;
+    --color: #cbd5e1 !important; 
+    transition: 0.2s ease;
 }
 
 .menu-item ion-icon {
-
-  color: #7c3aed;
-
-  font-size: 1.3rem;
-
-  margin-right: 6px;
+    color: #38bdf8; 
+    font-size: 1.4rem;
+    margin-right: 6px;
 }
 
 .menu-item.selected {
-
-  --background: #7c3aed;
-
-  color: white;
-
-  box-shadow: 0 8px 22px rgba(124, 58, 237, 0.28);
+    --background: #3b82f6 !important;
+    --color: #ffffff !important;
+    box-shadow: 0 8px 22px rgba(59, 130, 246, 0.35);
 }
 
 .menu-item.selected ion-icon {
-  color: white;
+    color: white !important;
 }
 
 .menu-item:hover {
-  --background: #ede9fe;
+    --background: rgba(30, 41, 59, 0.6) !important;
 }
 
 ion-menu::part(backdrop) {
-  background: rgba(76, 29, 149, 0.3);
+    background: rgba(2, 6, 23, 0.75);
 }
 
 ion-menu::part(container) {
-  border-radius: 0 28px 28px 0;
+    border-radius: 0 28px 28px 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-// Estilo integrado para el botón de cerrar sesión en el Sidebar
-.logout-item {
-  margin-top: 20px;
-  --background: transparent !important;
-  font-family: 'Nunito', sans-serif;
-  
-  // Usamos la variable de Ionic para inyectar el color ciruela dentro del shadow DOM del icon
-  ion-icon {
-    --color: #b91c1c !important; 
-    font-size: 1.3rem;
-  }
+¡.logout-item {
+    margin-top: 20px;
+    --background: transparent !important;
+    font-family: 'Nunito', sans-serif;
+}
 
-  // Usamos la variable de Ionic para el color del texto
-  ion-label {
-    --color: #4c1d95 !important; 
+.logout-item ion-icon {
+    color: #f87171 !important; 
+    font-size: 1.4rem;
+}
+
+.logout-item ion-label {
+    --color: #f87171 !important; 
     font-weight: 700 !important;
     font-size: 0.95rem;
-  }
+}
 
-  &:hover, &.ion-activated {
-    --background: #fef2f2 !important;
-    --border-radius: 12px; // Cambiado a variable nativa de ionic para items
-  }
+.logout-item:hover, .logout-item.ion-activated {
+    --background: rgba(248, 113, 113, 0.1) !important;
+    --border-radius: 18px;
 }

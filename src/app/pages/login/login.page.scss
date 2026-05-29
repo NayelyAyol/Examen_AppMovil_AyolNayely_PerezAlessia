@@ -1,143 +1,191 @@
-// Reutilizamos tu paleta hermosa morada
-.main-toolbar {
-  --background: #7c3aed;
-  --border-color: transparent;
-}
-
-.main-title {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  font-size: 1.1rem;
-  color: #ffffff;
-  text-align: left;
-}
-
 .form-content {
-  --background: #f5f0ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    --background: linear-gradient(135deg, #020617, #0f172a, #111827) !important;
+    color: white;
 }
 
 .login-container {
-  width: 100%;
-  max-width: 420px;
-  margin: 40px auto 0;
+    width: 100%;
+    max-width: 430px;
+    margin: 40px auto 0;
+    padding: 0 16px;
 }
 
 .login-brand {
-  text-align: center;
-  margin-bottom: 24px;
-  font-family: 'Nunito', sans-serif;
+    text-align: center;
+    margin-bottom: 28px;
+    font-family: 'Nunito', sans-serif;
+}
 
-  .logo-circle-login {
-    width: 70px;
-    height: 70px;
-    background: #7c3aed;
-    color: white;
+.login-brand .logo-circle-login {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 12px;
     border-radius: 50%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 2.2rem;
-    margin: 0 auto 12px;
-    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.25);
-  }
+    align-items: center;
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);
+}
 
-  h2 {
-    color: #2e1065;
-    font-weight: 800;
+.login-brand .logo-circle-login ion-icon {
+    font-size: 42px; 
+    color: #ffffff;  
+}
+
+.login-brand h2 {
+    color: white;
+    font-size: 32px;
     margin: 0;
-    font-size: 1.8rem;
-  }
+    font-weight: 700;
+}
 
-  p {
-    color: #6d28d9;
-    font-size: 0.95rem;
-    margin: 4px 0 0;
-    font-weight: 600;
-  }
+.login-brand p {
+    color: #cbd5e1;
+    margin-top: 8px;
+    font-size: 15px;
 }
 
 .form-card {
-  background: #ffffff;
-  border-radius: 20px;
-  border: 1.5px solid #ede9fe;
-  padding: 24px 20px;
-  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 28px 20px;
+    box-shadow: 0 20px 45px rgba(59, 130, 246, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
 
 .field-item {
-  --background: #ede9fe;
-  --background-focused: #ddd6fe;
-  --border-color: transparent;
-  --border-width: 0;
-  --inner-border-width: 0;
-  --border-radius: 12px;
-  --padding-start: 12px;
-  --highlight-color-focused: transparent;
-  border-radius: 12px;
-  overflow: hidden;
+    --background: rgba(30, 41, 59, 0.85) !important;
+    --border-color: transparent !important;
+    --border-width: 0 !important;
+    --inner-border-width: 0 !important;
+    --border-radius: 16px !important;
+    --padding-start: 14px !important;
+    border-radius: 16px;
+    margin-bottom: 4px;
+    overflow: hidden;
 
-  &.item-has-focus {
-    outline: 2px solid #a78bfa;
-  }
+    /* Forzamos que las variables de resaltado de Ionic siempre usen azul celeste */
+    --highlight-color-focused: #38bdf8 !important;
+    --highlight-color-valid: #38bdf8 !important;
+    --highlight-color-invalid: #38bdf8 !important;
+}
+
+.field-item.ion-valid,
+.field-item.ion-invalid,
+.field-item.item-has-focus {
+    --highlight-background: #38bdf8 !important;
 }
 
 .field-input {
-  font-family: 'Nunito', sans-serif !important;
-  --color: #2e1065 !important;
-  
-  // Estilo interno de la etiqueta nativa de Ionic en v7+
-  &::part(label) {
-    font-size: 0.75rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.06em;
-    color: #6d28d9 !important;
-    text-transform: uppercase;
-    margin-bottom: 2px;
-  }
+    font-family: 'Nunito', sans-serif !important;
+    --color: white !important;
+    color: white !important;
+
+    &::part(label) {
+        font-size: 0.75rem !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.06em;
+        color: #cbd5e1 !important;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+        transition: color 0.25s ease;
+    }
+}
+
+.field-item.item-has-focus .field-input::part(label) {
+    color: #38bdf8 !important;
+}
+
+.field-input ion-input-password-toggle {
+    --color: #60a5fa !important;
+    color: #60a5fa !important;
 }
 
 .btn-save {
-  margin-top: 8px;
-  --background: #7c3aed;
-  --background-hover: #6d28d9;
-  --background-activated: #6d28d9;
-  --color: #ffffff;
-  --border-radius: 14px;
-  --box-shadow: 0 6px 18px rgba(124, 58, 237, 0.3);
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  font-size: 1rem;
-  height: 50px;
+    margin-top: 12px;
+    --background: #3b82f6;
+    --background-hover: #2563eb;
+    --background-activated: #2563eb;
+    --color: #ffffff;
+    --border-radius: 16px;
+    --box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    height: 50px;
+    letter-spacing: 0.5px;
 }
 
 .btn-register {
-  --color: #6d28d9;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  font-size: 0.9rem;
-  margin-top: 4px;
+    margin-top: 6px;
+    height: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    
+    --color: #3b82f6 !important;
+    --border-color: #3b82f6 !important;
+    --border-width: 2px !important;
+    --border-style: solid !important;
+    --border-radius: 16px;
+    
+    --background-hover: rgba(59, 130, 246, 0.1);
+    --background-activated: rgba(59, 130, 246, 0.15);
 }
 
 .error-container {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  font-size: 0.88rem;
-  text-align: center;
-  margin: 4px 0;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    text-align: center;
+    margin: 4px 0;
 
-  .msg-error {
-    color: #ef4444;
-    margin: 0;
-  }
+    .msg-error {
+        color: #f87171;
+        margin: 0;
+    }
 
-  .msg-success {
-    color: #22c55e;
-    margin: 0;
-  }
+    .msg-success {
+        color: #4ade80;
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 0 8px;
+    }
+
+    .form-card {
+        border-radius: 22px;
+        padding: 24px 16px;
+    }
+
+    .login-brand h2 {
+        font-size: 28px;
+    }
+
+    .login-brand p {
+        font-size: 14px;
+    }
+
+    .login-brand .logo-circle-login {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .login-brand .logo-circle-login ion-icon {
+        font-size: 36px;
+    }
+
+    .btn-save,
+    .btn-register {
+        height: 48px;
+    }
 }

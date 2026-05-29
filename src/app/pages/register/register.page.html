@@ -1,15 +1,11 @@
-<ion-header>
-  <ion-toolbar class="main-toolbar">
-    <ion-title class="main-title">Crear Cuenta</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content class="form-content ion-padding">
 
   <div class="login-container">
 
     <div class="login-brand">
-      <div class="logo-circle-login">♪</div>
+      <div class="logo-circle-login">
+        <ion-icon name="game-controller"></ion-icon>
+      </div>
       <h2>Registrarse</h2>
       <p>Completa tus datos para empezar</p>
     </div>
@@ -67,8 +63,8 @@
         Registrarse
       </ion-button>
 
-      <ion-button class="btn-register" expand="block" fill="clear" (click)="goToLogin()">
-        ¿Ya tienes cuenta? Inicia sesión
+      <ion-button class="btn-register" expand="block" fill="outline" (click)="goToLogin()">
+        ya tengo cuenta
       </ion-button>
 
     </div>

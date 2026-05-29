@@ -1,130 +1,225 @@
+/* ==========================================================================
+   HEADER Y TOOLBAR (Estilo Oscuro Premium)
+   ========================================================================== */
 .main-toolbar {
-  --background: #7c3aed;
-  --border-color: transparent;
+    --background: radial-gradient(circle at top, #2563eb, transparent 65%), #020617;
+    --border-color: transparent;
+    color: white;
 }
 
 .main-title {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  font-size: 1.1rem;
-  color: #ffffff;
-  text-align: left;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #ffffff;
+    text-align: left;
 }
 
+/* ==========================================================================
+   CONTENIDO PRINCIPAL Y FONDO
+   ========================================================================== */
 .form-content {
-  --background: #f5f0ff;
+    --background: linear-gradient(135deg, #020617, #0f172a, #111827) !important;
+    color: white;
 }
 
 .login-container {
-  width: 100%;
-  max-width: 420px;
-  margin: 24px auto 0;
+    width: 100%;
+    max-width: 430px;
+    margin: 24px auto 0;
+    padding: 0 16px;
 }
 
+/* BRAND / LOGO */
 .login-brand {
-  text-align: center;
-  margin-bottom: 20px;
-  font-family: 'Nunito', sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Nunito', sans-serif;
+}
 
-  .logo-circle-login {
-    width: 65px;
-    height: 65px;
-    background: #7c3aed;
-    color: white;
+.login-brand .logo-circle-login {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 12px;
     border-radius: 50%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    margin: 0 auto 10px;
-    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.25);
-  }
+    align-items: center;
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);
+}
 
-  h2 {
-    color: #2e1065;
-    font-weight: 800;
+.login-brand .logo-circle-login ion-icon {
+    font-size: 42px; 
+    color: #ffffff;  
+}
+
+.login-brand h2 {
+    color: white;
+    font-size: 32px;
     margin: 0;
-    font-size: 1.7rem;
-  }
-
-  p {
-    color: #6d28d9;
-    font-size: 0.9rem;
-    margin: 4px 0 0;
-    font-weight: 600;
-  }
+    font-weight: 700;
 }
 
+.login-brand p {
+    color: #cbd5e1;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+/* ==========================================================================
+   TARJETA DEL FORMULARIO (Glassmorphism)
+   ========================================================================== */
 .form-card {
-  background: #ffffff;
-  border-radius: 20px;
-  border: 1.5px solid #ede9fe;
-  padding: 24px 20px;
-  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 28px 20px;
+    box-shadow: 0 20px 45px rgba(59, 130, 246, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
+/* FILA DE CAMPOS DIVIDIDOS (Nombre y Apellido) */
 .fields-row {
-  display: flex;
-  gap: 10px;
+    display: flex;
+    gap: 12px;
+}
 
-  .half {
+.fields-row .half {
     flex: 1;
-  }
 }
 
+/* ==========================================================================
+   INPUTS (Bloqueo agresivo de Verde/Rojo Nativo)
+   ========================================================================== */
 .field-item {
-  --background: #ede9fe;
-  --background-focused: #ddd6fe;
-  --border-color: transparent;
-  --border-width: 0;
-  --inner-border-width: 0;
-  --border-radius: 12px;
-  --padding-start: 12px;
-  --highlight-color-focused: transparent;
-  border-radius: 12px;
-  overflow: hidden;
+    --background: rgba(30, 41, 59, 0.85) !important;
+    --border-color: transparent !important;
+    --border-width: 0 !important;
+    --inner-border-width: 0 !important;
+    --border-radius: 16px !important;
+    --padding-start: 14px !important;
+    border-radius: 16px;
+    margin-bottom: 4px;
+    overflow: hidden;
 
-  &.item-has-focus {
-    outline: 2px solid #a78bfa;
-  }
+    /* Forzamos que las variables de resaltado de Ionic siempre usen azul celeste */
+    --highlight-color-focused: #38bdf8 !important;
+    --highlight-color-valid: #38bdf8 !important;
+    --highlight-color-invalid: #38bdf8 !important;
 }
 
+/* Evitar que Ionic cambie el entorno al validar el formulario */
+.field-item.ion-valid,
+.field-item.ion-invalid,
+.field-item.item-has-focus {
+    --highlight-background: #38bdf8 !important;
+}
+
+/* Configuración estricta de las fuentes y el input */
 .field-input {
-  font-family: 'Nunito', sans-serif !important;
-  --color: #2e1065 !important;
-  
-  &::part(label) {
-    font-size: 0.75rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.06em;
-    color: #6d28d9 !important;
-    text-transform: uppercase;
-    margin-bottom: 2px;
-  }
+    font-family: 'Nunito', sans-serif !important;
+    --color: white !important;
+    color: white !important;
+
+    /* Estilo del Label Moderno (v7+) */
+    &::part(label) {
+        font-size: 0.75rem !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.06em;
+        color: #cbd5e1 !important;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+        transition: color 0.25s ease;
+    }
 }
 
+/* Cambiar color del label únicamente al enfocarse */
+.field-item.item-has-focus .field-input::part(label) {
+    color: #38bdf8 !important;
+}
+
+/* Forzar que el texto e iconos del toggle de contraseña sigan el patrón azul */
+.field-input ion-input-password-toggle {
+    --color: #60a5fa !important;
+    color: #60a5fa !important;
+}
+
+/* ==========================================================================
+   BOTONES
+   ========================================================================== */
+/* Botón Principal (Registrarse) */
 .btn-save {
-  margin-top: 10px;
-  --background: #7c3aed;
-  --background-hover: #6d28d9;
-  --background-activated: #6d28d9;
-  --color: #ffffff;
-  --border-radius: 14px;
-  --box-shadow: 0 6px 18px rgba(124, 58, 237, 0.3);
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  font-size: 1rem;
-  height: 50px;
+    margin-top: 12px;
+    --background: #3b82f6;
+    --background-hover: #2563eb;
+    --background-activated: #2563eb;
+    --color: #ffffff;
+    --border-radius: 16px;
+    --box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    height: 50px;
+    letter-spacing: 0.5px;
 }
 
+/* Botón Secundario (Inicia Sesión - Estilo Outline del mismo azul) */
 .btn-register {
-  --color: #6d28d9;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  font-size: 0.9rem;
-  margin-top: 4px;
+    margin-top: 6px;
+    height: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    
+    /* Configuración de bordes y color idénticos al de registrarse */
+    --color: #3b82f6 !important;
+    --border-color: #3b82f6 !important;
+    --border-width: 2px !important;
+    --border-style: solid !important;
+    --border-radius: 16px;
+    
+    /* Efectos de Hover interactivo */
+    --background-hover: rgba(59, 130, 246, 0.1);
+    --background-activated: rgba(59, 130, 246, 0.15);
 }
 
+/* ==========================================================================
+   RESPONSIVE / MÓVILES
+   ========================================================================== */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 0 8px;
+    }
+
+    .form-card {
+        border-radius: 22px;
+        padding: 24px 16px;
+    }
+
+    .login-brand h2 {
+        font-size: 28px;
+    }
+
+    .login-brand p {
+        font-size: 14px;
+    }
+
+    .login-brand .logo-circle-login {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .login-brand .logo-circle-login ion-icon {
+        font-size: 36px;
+    }
+
+    .btn-save,
+    .btn-register {
+        height: 48px;
+    }
+}

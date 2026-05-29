@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar class="main-toolbar">
+    <ion-title class="main-title">Registros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="form-content ion-padding">
+
+  @if (encuestas.length > 0) {
+    <ion-grid>
+      <ion-row>
+        <ion-col
+          size="12"
+          size-md="6"
+          size-lg="4"
+          *ngFor="let item of encuestas">
+
+          <ion-card class="game-card">
+
+            <div class="card-media-container">
+              <div class="media-box">
+                <span class="media-label">Juego</span>
+                <img 
+                  [src]="item.api_data?.imagen_juego || item.juego_imagen_url || 'assets/icon/image.png'"
+                  (error)="imagenError($event)"
+                  alt="Portada"
+                  class="game-image" />
+              </div>
+              <div class="media-box">
+                <span class="media-label">Evidencia</span>
+                <img 
+                  [src]="item.foto_url || 'assets/icon/image.png'"
+                  (error)="imagenError($event)"
+                  alt="Evidencia"
+                  class="evidence-image" />
+              </div>
+            </div>
+
+            <ion-card-content class="card-body">
+
+              <div class="user-info-row">
+                <span class="user-alias">@{{ item.nombre_alias }}</span>
+                <span class="user-age">{{ item.edad_rango }}</span>
+              </div>
+
+              <h2 class="game-title">{{ item.videojuego_favorito }}</h2>
+
+              <div class="meta-row">
+                <div class="meta-item">
+                  <span class="meta-label">Género</span>
+                  <span class="meta-value">{{ item.juego_genero_api || item.genero }}</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Plataforma</span>
+                  <span class="meta-value">{{ item.juego_plataforma_api || item.plataforma }}</span>
+                </div>
+              </div>
+
+              <p class="api-description" *ngIf="item.juego_descripcion">
+                {{ item.juego_descripcion }}
+              </p>
+
+              <div class="section-divider">Metadatos del Campus</div>
+              <div class="location-box">
+                <p class="location-text" *ngIf="item.lugar_campus">
+                  📍 <strong>Lugar:</strong> {{ item.lugar_campus }}
+                </p>
+                <p class="gps-coords" *ngIf="item.latitud">
+                  🌐 {{ item.latitud.toFixed(4) }}, {{ item.longitud?.toFixed(4) }}
+                </p>
+                <p class="date-text" *ngIf="item.fecha_hora">
+                  📅 <strong>Fecha:</strong> {{ item.fecha_hora | date:'short' }}
+                </p>
+              </div>
+
+              <div class="user-comment-box" *ngIf="item.comentario">
+                <span class="comment-label">Opinión Breve:</span>
+                <p>"{{ item.comentario }}"</p>
+              </div>
+
+              <div class="card-footer">
+                <div class="botones">
+                  <ion-button
+                    size="small"
+                    class="btn-delete"
+                    (click)="confirmarEliminar(item.id!)">
+                    Eliminar
+                  </ion-button>
+                </div>
+              </div>
+
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row> 
+    </ion-grid>
+  } @else {
+    <div class="empty-catalog-container">
+      <div class="empty-icon-wrapper">
+        <ion-icon name="document-text-outline"></ion-icon>
+      </div>
+      <h3>No hay encuestas registradas</h3>
+      <p>Aún no has recolectado datos. ¡Comienza a registrar las respuestas!</p>
+      
+      <ion-button class="btn-empty-add" routerLink="/encuesta">
+        <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+        Nueva Encuesta
+      </ion-button>
+    </div>
+  }
+
+  @if (encuestas.length > 0) {
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button class="fab-main" routerLink="/encuesta">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  }
+
+</ion-content>

@@ -8,12 +8,15 @@ import {
   IonInput,
   IonButton,
   IonInputPasswordToggle,
-  ToastController
+  ToastController,
+  IonIcon
 } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service'; // Tu servicio de autenticación
+import { addIcons } from 'ionicons';
+import { gameController } from 'ionicons/icons';
 
 @Component({
   selector: 'app-login',
@@ -30,10 +33,15 @@ import { AuthService } from '../../services/auth.service'; // Tu servicio de aut
     IonItem,
     IonInput,
     IonButton,
-    IonInputPasswordToggle
+    IonInputPasswordToggle,
+    IonIcon
   ]
 })
 export class LoginPage {
+  constructor() {
+    addIcons({ gameController });
+  }
+
   email = '';
   password = '';
 
@@ -42,7 +50,6 @@ export class LoginPage {
   private toastController = inject(ToastController);
   private ngZone = inject(NgZone);
 
-  // Implementamos tu función de Toast dinámico para el Login
   async mostrarToast(mensaje: string, tipo: 'success' | 'error' = 'error') {
     try {
       const toast = await this.toastController.create({
@@ -71,8 +78,7 @@ export class LoginPage {
         await this.mostrarToast('Inicio de sesión correcto', 'success');
         
         setTimeout(async () => {
-          // Te manda al catálogo limpiando el historial para que no se pueda volver atrás con el botón físico
-          await this.router.navigate(['/catalogo'], { replaceUrl: true });
+          await this.router.navigate(['/perfil'], { replaceUrl: true });
         }, 200);
       });
 
@@ -81,7 +87,6 @@ export class LoginPage {
     }
   }
 
-  // CORRECCIÓN AQUÍ: Ya no registra desde aquí, ahora redirige a tu nueva página hermosa de registro
   register() {
     this.router.navigateByUrl('/registrarse');
   }

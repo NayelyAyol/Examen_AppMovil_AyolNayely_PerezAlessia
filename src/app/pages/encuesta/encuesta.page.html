@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="main-toolbar">
-    <ion-title class="main-title">Encuesta de videojuegos</ion-title>
+    <ion-title class="main-title">Nueva Encuesta</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,20 +9,26 @@
   <div class="encuesta-container">
     <div class="form-card">
 
-      <div class="form-header">
-        <h2>Nueva encuesta</h2>
-        <p>Completa los datos de la persona encuestada en el campus.</p>
-      </div>
-
       <ion-item class="field-item">
-        <ion-label position="stacked" class="field-label">Nombre o Alias</ion-label>
-        <ion-input class="field-input" [(ngModel)]="encuesta.nombre_alias"></ion-input>
+        <ion-input 
+          label="Nombre o Alias" 
+          labelPlacement="stacked" 
+          class="field-input" 
+          type="text"
+          placeholder="Ej. GhostPlayer"
+          [(ngModel)]="encuesta.nombre_alias">
+        </ion-input>
       </ion-item>
 
       <div class="fields-row">
         <ion-item class="field-item half">
-          <ion-label position="stacked" class="field-label">Rango de Edad</ion-label>
-          <ion-select class="field-input" [(ngModel)]="encuesta.edad_rango" interface="popover" placeholder="Selecciona">
+          <ion-select 
+            label="Rango de Edad" 
+            labelPlacement="stacked" 
+            class="field-input" 
+            [(ngModel)]="encuesta.edad_rango" 
+            interface="popover" 
+            placeholder="Selecciona">
             <ion-select-option *ngFor="let edad of edades" [value]="edad">
               {{ edad }}
             </ion-select-option>
@@ -30,8 +36,13 @@
         </ion-item>
 
         <ion-item class="field-item half">
-          <ion-label position="stacked" class="field-label">Rol en el Campus</ion-label>
-          <ion-select class="field-input" [(ngModel)]="encuesta.rol" interface="popover" placeholder="Selecciona">
+          <ion-select 
+            label="Rol en el Campus" 
+            labelPlacement="stacked" 
+            class="field-input" 
+            [(ngModel)]="encuesta.rol" 
+            interface="popover" 
+            placeholder="Selecciona">
             <ion-select-option *ngFor="let rol of roles" [value]="rol">
               {{ rol }}
             </ion-select-option>
@@ -39,38 +50,104 @@
         </ion-item>
       </div>
 
-      <div class="fields-row">
-        <ion-item class="field-item half">
-          <ion-label position="stacked" class="field-label">Videojuego Favorito</ion-label>
-          <ion-input class="field-input" [(ngModel)]="encuesta.videojuego_favorito"></ion-input>
+      <div class="search-row-container">
+        <ion-item class="field-item">
+          <ion-input 
+            label="Videojuego Favorito" 
+            labelPlacement="stacked" 
+            class="field-input" 
+            type="text"
+            placeholder="Escribe el nombre del juego..."
+            [(ngModel)]="encuesta.videojuego_favorito"
+            (ionInput)="buscarVideojuegoApi($event)">
+            <ion-icon slot="end" name="search-outline" class="input-search-icon"></ion-icon>
+          </ion-input>
         </ion-item>
 
-        <ion-item class="field-item half">
-          <ion-label position="stacked" class="field-label">Plataforma</ion-label>
-          <ion-select class="field-input" [(ngModel)]="encuesta.plataforma" interface="popover" placeholder="Selecciona">
-            <ion-select-option *ngFor="let plataforma of plataformas" [value]="plataforma">
-              {{ plataforma }}
-            </ion-select-option>
-          </ion-select>
-        </ion-item>
+        <ion-list class="sugerencias-list" *ngIf="juegosSugeridos.length > 0">
+          <ion-item 
+            button 
+            *ngFor="let juego of juegosSugeridos" 
+            (click)="seleccionarJuego(juego)"
+            lines="none"
+            class="sugerencia-item">
+            <img [src]="juego.thumbnail" slot="start" class="sugerencia-img" />
+            <ion-label class="sugerencia-label">
+              <h2>{{ juego.title }}</h2>
+              <p>{{ juego.genre }} • {{ juego.platform }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
       </div>
 
+      <div class="api-data-box" *ngIf="juegoSeleccionadoApi" style="background: rgba(124, 58, 237, 0.1); border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 12px; padding: 12px; margin: 15px 0;">
+        <span style="color: #a78bfa; font-weight: bold; font-size: 0.85rem; display: block; margin-bottom: 6px;">
+          🎮 DATOS:
+        </span>
+        <div style="font-size: 0.9rem; color: #f1f5f9; margin-bottom: 4px;">
+          <p style="margin: 2px 0;"><strong>Género auto-detectado:</strong> {{ juegoSeleccionadoApi.juego_genero_api }}</p>
+          <p style="margin: 2px 0;"><strong>Plataforma auto-detectada:</strong> {{ juegoSeleccionadoApi.juego_plataforma_api }}</p>
+        </div>
+      </div>
+
+      <div class="section-divider" style="margin-top: 20px; font-size: 0.85rem; color: #10b981; letter-spacing: 1px; font-weight: bold;">📍 GEOLOCALIZACIÓN</div>
+
       <ion-item class="field-item">
-        <ion-label position="stacked" class="field-label">Género</ion-label>
-        <ion-select class="field-input" [(ngModel)]="encuesta.genero" interface="popover" placeholder="Selecciona">
-          <ion-select-option *ngFor="let genero of generos" [value]="genero">
-            {{ genero }}
+        <ion-select 
+          label="Punto del Campus" 
+          labelPlacement="stacked" 
+          class="field-input" 
+          [(ngModel)]="encuesta.lugar_campus" 
+          interface="popover" 
+          placeholder="Selecciona la zona">
+          <ion-select-option *ngFor="let lugar of lugaresCampus" [value]="lugar">
+            {{ lugar }}
           </ion-select-option>
         </ion-select>
       </ion-item>
 
+      <div style="margin: 15px 0;">
+        <ion-button expand="block" class="btn-geo" (click)="obtenerUbicacionActual()">
+          <ion-icon slot="start" name="locate-outline"></ion-icon>
+          Obtener ubicación actual
+        </ion-button>
+
+        <ion-button *ngIf="encuesta.latitud" expand="block" (click)="abrirGoogleMaps()" class="btn-maps">
+          <ion-icon slot="start" name="map-outline"></ion-icon>
+          Ver en Google Maps
+        </ion-button>
+      </div>
+
+      <div class="gps-info-box" *ngIf="encuesta.latitud" style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 12px; padding: 12px; margin-bottom: 15px;">
+        <div style="font-size: 0.85rem; color: #ffffff; text-align: center;">
+          <p style="margin: 0;"><strong>Lat:</strong> {{ encuesta.latitud }} | <strong>Lng:</strong> {{ encuesta.longitud }}</p>
+        </div>
+      </div>
+
       <ion-item class="field-item">
-        <ion-label position="stacked" class="field-label">Comentario Breve</ion-label>
-        <ion-textarea class="field-input" [(ngModel)]="encuesta.comentario" [autoGrow]="true"></ion-textarea>
+        <ion-textarea 
+          label="Comentario" 
+          labelPlacement="stacked" 
+          class="field-input" 
+          placeholder="Escribe alguna anotación de la entrevista..."
+          [(ngModel)]="encuesta.comentario" 
+          [autoGrow]="true">
+        </ion-textarea>
       </ion-item>
+      <div class="section-divider" style="margin-top: 20px; color: #38bdf8;">📸 EVIDENCIA (FOTO)</div>
+
+      <div class="photo-preview" style="text-align: center; margin: 15px 0;">
+        <div *ngIf="encuesta.foto_url" style="margin-bottom: 10px;">
+          <img [src]="encuesta.foto_url" style="width: 150px; height: 150px; object-fit: cover; border-radius: 12px; border: 2px solid #3b82f6;">
+        </div>
+        <ion-button expand="block" class="btn-geo" (click)="tomarFotoEncuestado()">
+          <ion-icon slot="start" name="camera"></ion-icon>
+          Tomar foto con encuestado
+        </ion-button>
+      </div>
 
       <ion-button expand="block" class="btn-save" (click)="guardarEncuesta()">
-        Guardar encuesta
+        Guardar
       </ion-button>
 
     </div>

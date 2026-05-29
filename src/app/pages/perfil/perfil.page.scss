@@ -1,111 +1,137 @@
-// Fondo general de la página con tu lavanda suave característico
-
 .main-toolbar {
-  --background: #7c3aed;
-  --border-color: transparent;
+    --background: radial-gradient(circle at top, #2563eb, transparent 65%), #020617;
+    --border-color: transparent;
+    color: white;
 }
 
 .main-title {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  font-size: 1.1rem;
-  color: #ffffff;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #ffffff;
+    text-align: left;
 }
 
 .form-content {
-  --background: #f5f0ff;
+    --background: linear-gradient(135deg, #020617, #0f172a, #111827) !important;
+    color: white;
 }
 
 .profile-container {
-  width: 100%;
-  max-width: 480px;
-  margin: 12px auto 0;
-  font-family: 'Nunito', sans-serif;
+    width: 100%;
+    max-width: 480px;
+    margin: 12px auto 0;
+    font-family: 'Nunito', sans-serif;
 }
 
-// Tarjeta principal del perfil con bordes redondeados y sombra suave morada
 .form-card {
-  background: #ffffff;
-  border-radius: 20px;
-  border: 1.5px solid #ede9fe;
-  padding: 16px 20px 24px;
-  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.08);
-  display: flex;
-  flex-direction: column;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 16px 20px 24px;
+    box-shadow: 0 20px 45px rgba(59, 130, 246, 0.25);
+    display: flex;
+    flex-direction: column;
 }
 
-// Contenedor del Avatar centrado
 .avatar-container {
-  text-align: center;
-  padding: 16px 10px 24px;
+    text-align: center;
+    padding: 16px 10px 24px;
+}
 
-  .avatar-icon {
-    font-size: 90px;
-    color: #7c3aed; // Tu morado vibrante principal
-    filter: drop-shadow(0 6px 14px rgba(124, 58, 237, 0.2));
-  }
+.avatar-container .avatar-icon {
+    font-size: 96px;
+    color: #ffffff;
+    filter: drop-shadow(0 8px 20px rgba(59, 130, 246, 0.35)); /* Mantiene el aura azul de fondo */
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+}
 
-  h2 {
-    color: #2e1065; // El morado oscuro profundo para títulos
+.avatar-container h2 {
+    color: white;
     font-weight: 900;
-    margin: 8px 0 0;
+    margin: 12px 0 0;
     font-size: 1.8rem;
     letter-spacing: -0.02em;
-  }
-
-  .subtitulo {
-    color: #6d28d9; // Subtítulos en tono medio estructurado
-    font-size: 0.9rem;
-    margin: 4px 0 0;
-    font-weight: 600;
-  }
 }
 
-// Los bloques contenedores de información individuales que querías
-.info-item {
-  margin-bottom: 14px;
-  padding: 12px 14px;
-  border-radius: 14px;
-  background: #fdfbff; // Un blanco con matiz lavanda ultra sutil
-  border: 1px solid #f3efff;
-  border-left: 5px solid #7c3aed; // El borde izquierdo acentuado con tu morado insignia
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  box-shadow: 0 2px 6px rgba(124, 58, 237, 0.02);
+.avatar-container .subtitulo {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    margin: 6px 0 0;
+    font-weight: 600;
+}
 
-  strong {
-    color: #6d28d9; // Morado para destacar el label
+.info-item {
+    margin-bottom: 14px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: rgba(30, 41, 59, 0.85); 
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    /* Borde izquierdo acentuado en color azul celeste de enfoque */
+    border-left: 5px solid #38bdf8; 
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.info-item strong {
+    color: #38bdf8; 
     font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-  }
+}
 
-  p {
+.info-item p {
     margin: 0;
     font-size: 1.05rem;
     font-weight: 700;
-    color: #2e1065; // Texto de valor con buena presencia
-  }
-
-  // Estilo especial si el valor indica estado activo
-  .status-active {
-    color: #22c55e !important;
-    font-weight: 800;
-  }
+    color: #ffffff; 
 }
 
-// Botón de salir estilizado en tonos rojizos complementarios para seguridad
+.info-item .status-active {
+    color: #4ade80 !important;
+    font-weight: 800;
+}
+
 .btn-logout {
-  margin-top: 24px;
-  --background: #ef4444;
-  --background-hover: #dc2626;
-  --background-activated: #dc2626;
-  --color: #ffffff;
-  --border-radius: 14px;
-  --box-shadow: 0 6px 16px rgba(239, 68, 68, 0.25);
-  font-weight: 800;
-  font-size: 1rem;
-  height: 50px;
+    margin-top: 24px;
+    --background: #ef4444;
+    --background-hover: #dc2626;
+    --background-activated: #dc2626;
+    --color: #ffffff;
+    --border-radius: 16px;
+    --box-shadow: 0 6px 18px rgba(239, 68, 68, 0.3);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    height: 50px;
+}
+
+@media (max-width: 480px) {
+    .profile-container {
+        padding: 0 8px;
+    }
+
+    .form-card {
+        border-radius: 22px;
+        padding: 16px 14px 20px;
+    }
+
+    .avatar-container .avatar-icon {
+        font-size: 80px;
+    }
+
+    .avatar-container h2 {
+        font-size: 1.6rem;
+    }
+
+    .info-item p {
+        font-size: 0.98rem;
+    }
 }

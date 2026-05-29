@@ -32,9 +32,12 @@ import {
   searchSharp, 
   clipboard,
   clipboardSharp,
-  // 💡 AÑADIDO: Importamos los estados del nuevo icono para la cámara
   apertureOutline,
-  apertureSharp
+  apertureSharp,
+  documentTextOutline,
+  documentTextSharp,
+  gameControllerOutline,
+  gameControllerSharp
 } from 'ionicons/icons';
 
 import { AuthService } from './services/auth.service';
@@ -68,34 +71,42 @@ export class AppComponent {
 
   public appPages = [
     { title: 'Mi Perfil', url: '/perfil', icon: 'person-circle' },
-    { title: 'Catálogo', url: '/catalogo', icon: 'musical-notes' },
-    { title: 'Agregar Música', url: '/musica-form', icon: 'add-circle' },
-    { title: 'GPS', url: '/gps', icon: 'location' }, 
-    { title: 'Buscador', url: '/buscador', icon: 'search' }, 
+    { title: 'Registros', url: '/registros', icon: 'document-text' }, 
     { title: 'Encuesta', url: '/encuesta', icon: 'clipboard' }, 
-    // 💡 CORRECCIÓN: Cambiado de 'icon-camera' a 'aperture' para que use el nuevo estilo tecnológico
-    { title: 'Cámara', url: '/camara', icon: 'aperture' }, 
   ];
 
   constructor() {
     addIcons({
-      musicalNotesOutline,
-      musicalNotesSharp,
-      addCircleOutline,
-      addCircleSharp,
-      personCircleOutline,
-      personCircleSharp,
-      logOutOutline,
-      logOutSharp,
-      locationOutline,
-      locationSharp,
-      searchOutline, 
-      searchSharp, 
-      clipboard,
-      clipboardSharp,
-      // 💡 AÑADIDO: Registramos el icono en el core de Ionicons
-      apertureOutline,
-      apertureSharp
+      'person-circle': personCircleOutline,
+      'person-circle-outline': personCircleOutline,
+      'person-circle-sharp': personCircleSharp,
+      'musical-notes': musicalNotesOutline,
+      'musical-notes-outline': musicalNotesOutline,
+      'musical-notes-sharp': musicalNotesSharp,
+      'add-circle': addCircleOutline,
+      'add-circle-outline': addCircleOutline,
+      'add-circle-sharp': addCircleSharp,
+      'location': locationOutline,
+      'location-outline': locationOutline,
+      'location-sharp': locationSharp,
+      'search': searchOutline,
+      'search-outline': searchOutline,
+      'search-sharp': searchSharp,
+      'clipboard': clipboard,
+      'clipboard-outline': clipboard,
+      'clipboard-sharp': clipboardSharp,
+      'aperture': apertureOutline,
+      'aperture-outline': apertureOutline,
+      'aperture-sharp': apertureSharp,
+      'document-text': documentTextOutline,
+      'document-text-outline': documentTextOutline,
+      'document-text-sharp': documentTextSharp,
+      'log-out': logOutOutline, 
+      'log-out-outline': logOutOutline,
+      'log-out-sharp': logOutSharp,
+      'game-controller': gameControllerOutline,
+      'game-controller-outline': gameControllerOutline,
+      'game-controller-sharp': gameControllerSharp,
     });
 
     this.router.events.pipe(
@@ -104,7 +115,7 @@ export class AppComponent {
       const urlActual = event.urlAfterRedirects;
 
       const esLogin = urlActual.includes('/login');
-      const esRegistro = urlActual.includes('/registrarse');
+      const esRegistro = urlActual.includes('/registrarse') || urlActual.includes('/register');
       const esRaiz = urlActual === '/';
 
       this.mostrarMenu = !(esLogin || esRegistro || esRaiz);
@@ -112,6 +123,11 @@ export class AppComponent {
   }
 
   async cerrarSesion() {
-    await this.authService.logout();
+    try {
+      await this.authService.logout();
+      this.router.navigateByUrl('/login');
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
   }
 }
