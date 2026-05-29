@@ -119,7 +119,7 @@ Supabase:
 
 Video de la actividad:
 
-[![Ver en TikTok](https://img.shields.io/badge/Ver_Video-TikTok-black?style=for-the-badge&logo=tiktok)](URL_DE_TU_VIDEO_TIKTOK)
+[![Ver en reel](https://img.shields.io/badge/Ver_Reel-black?style=for-the-badge&logo=tiktok)](https://www.instagram.com/reel/DY7vYFpyLgm/?igsh=Nml1b21zNTEyNzJu)
 ---
 
 ## Capturas de Funcionalidad
