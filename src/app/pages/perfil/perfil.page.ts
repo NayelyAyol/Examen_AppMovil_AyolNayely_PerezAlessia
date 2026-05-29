@@ -4,11 +4,7 @@ import {
   IonToolbar,
   IonTitle,
   IonContent,
-  IonButton,
-  IonCardContent,
   IonIcon,
-  IonCard,
-  IonAlert
 } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -26,12 +22,8 @@ import { AuthService } from '../../services/auth.service';
     IonToolbar,
     IonTitle,
     IonContent,
-    IonButton,
     CommonModule,
-    IonCardContent,
     IonIcon,
-    IonCard,
-    IonAlert
   ]
 })
 export class PerfilPage implements OnInit {

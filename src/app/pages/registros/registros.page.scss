@@ -350,3 +350,51 @@
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* Estilos para el Alert Personalizado */
+.custom-alert {
+  --background: #0f172a; // Fondo oscuro que combina con tus tarjetas
+  --backdrop-opacity: 0.8;
+  
+  .alert-wrapper {
+    background: #0f172a;
+    border-radius: 24px;
+    border: 1px solid rgba(56, 189, 248, 0.2); // Borde azul neón sutil
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+
+  .alert-head {
+    .alert-title {
+      color: #ffffff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+    }
+  }
+
+  .alert-message {
+    color: #94a3b8;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .alert-button-group {
+    padding: 10px;
+  }
+
+  .alert-button {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    border-radius: 12px;
+  }
+}
+
+// Botón de Cancelar (Gris suave)
+.alert-button-cancel {
+  color: #94a3b8 !important;
+  --background: rgba(255, 255, 255, 0.05);
+}
+
+// Botón de Eliminar (Rojo neón que combina con tu btn-delete)
+.alert-button-confirm {
+  color: #f87171 !important;
+  --background: rgba(239, 68, 68, 0.1) !important;
+}

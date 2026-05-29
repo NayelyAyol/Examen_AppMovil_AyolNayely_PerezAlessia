@@ -16,9 +16,6 @@ import {
   IonSelectOption,
   IonTextarea,
   IonButton,
-  IonGrid,
-  IonRow,
-  IonCol,
   IonList,
   IonIcon,
   ToastController
@@ -51,9 +48,6 @@ import { SupabaseService } from '../../services/supabase.service';
     IonSelectOption,
     IonTextarea,
     IonButton,
-    IonGrid,
-    IonRow,
-    IonCol,
     IonList,
     IonIcon
   ]
@@ -88,7 +82,6 @@ export class EncuestaPage implements OnInit {
   juegosSugeridos: any[] = [];
   juegoSeleccionadoApi: any = null;
 
-// ... resto de tus inyecciones privadas
   private supabaseService = inject(SupabaseService); 
 
   constructor(private photoService: PhotoService) {
@@ -101,11 +94,9 @@ export class EncuestaPage implements OnInit {
     if (this.photoService.photos.length > 0) {
       const photo = this.photoService.photos[0];
       
-      // Convertir el path a Blob para subirlo a Supabase
       const response = await fetch(photo.webviewPath!);
       const blob = await response.blob();
       
-      // Llamar al método del servicio Supabase que definimos
       const url = await this.supabaseService.subirFoto(blob, `encuesta_${Date.now()}.png`);
       
       if (url) {

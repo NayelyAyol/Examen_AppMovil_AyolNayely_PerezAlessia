@@ -1,8 +1,5 @@
 import { Component, inject, NgZone } from '@angular/core';
 import {
-  IonHeader,
-  IonToolbar,
-  IonTitle,
   IonContent,
   IonItem,
   IonInput,
@@ -26,9 +23,6 @@ import { gameController } from 'ionicons/icons';
   imports: [
     CommonModule,
     FormsModule,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
     IonContent,
     IonItem,
     IonInput,

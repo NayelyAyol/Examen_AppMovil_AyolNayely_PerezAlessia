@@ -80,13 +80,17 @@ export class RegistrosPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Confirmar',
       message: '¿Deseas eliminar este registro de encuesta?',
+      cssClass: 'custom-alert',
       buttons: [
         {
           text: 'Cancelar',
-          role: 'cancel'
+          role: 'cancel',
+          cssClass: 'alert-button-cancel'
         },
         {
           text: 'Eliminar',
+          role: 'destructive',
+          cssClass: 'alert-button-confirm',
           handler: async () => {
             await this.eliminar(id);
           }
